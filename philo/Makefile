@@ -1,7 +1,7 @@
 CC = cc
 NAME = philo
 
-CFLAGS = -Wall -Wextra -Werror -g3  -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = main.c parcing.c philo.c philo2.c
 SRC += routine.c get_set.c ft_death.c actions.c

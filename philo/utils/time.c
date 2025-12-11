@@ -12,21 +12,21 @@
 
 #include "utils.h"
 
-long long get_time(void)
+long long	get_time(void)
 {
-    struct timeval tv;
+	struct timeval	tv;
 
-    if (gettimeofday(&tv, NULL))
-        return (printf("error from get time of day\n"));
-    return ((long long)(tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+	if (gettimeofday(&tv, NULL))
+		return (printf("error from get time of day\n"));
+	return ((long long)(tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
-int    ft_usleep(size_t milliseconds)
+int	ft_usleep(size_t milliseconds)
 {
-    long long    start;
+	long long	start;
 
-    start = get_time();
-    while ((size_t)(get_time() - start) < milliseconds)
-        usleep(100);
-    return (0);
+	start = get_time();
+	while ((size_t)(get_time() - start) < milliseconds)
+		usleep(100);
+	return (0);
 }

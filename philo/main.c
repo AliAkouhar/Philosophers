@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aakouhar <aakouhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 14:28:20 by aakouhar          #+#    #+#             */
-/*   Updated: 2024/07/27 10:11:42 by aakouhar         ###   ########.fr       */
+/*   Created: 2024/06/13 12:53:46 by ali-akouhar       #+#    #+#             */
+/*   Updated: 2024/07/27 10:13:56 by aakouhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void ft_free_all(t_data *data)
+int	main(int ac, char **av)
 {
-    int i;
+	t_data	data;
 
-    i = -1;
-    pthread_mutex_destroy(&data->status_lock);
-    pthread_mutex_destroy(&data->write_lock);
-    pthread_mutex_destroy(&data->dimo);
-    pthread_mutex_destroy(&data->eat_lock);
-    pthread_mutex_destroy(&data->time_lock);
-    pthread_mutex_destroy(&data->finish_lock);
-    while (++i < data->n_philo)
-        pthread_mutex_destroy(&data->forks[i]);
+	if (parcing(ac, av))
+		return (1);
+	if (ft_init(av, &data))
+		return (1);
+	return (0);
 }

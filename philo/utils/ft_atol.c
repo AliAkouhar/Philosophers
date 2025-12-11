@@ -14,9 +14,9 @@
 
 long	ft_atol(char *str)
 {
-	int		i;
-	int		signe;
-	long long 	res;
+	int			i;
+	int			signe;
+	long long	res;
 
 	i = 0;
 	signe = 1;

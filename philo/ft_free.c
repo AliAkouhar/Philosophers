@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aakouhar <aakouhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 15:48:27 by aakouhar          #+#    #+#             */
-/*   Updated: 2024/08/13 11:21:21 by aakouhar         ###   ########.fr       */
+/*   Created: 2024/06/29 14:28:20 by aakouhar          #+#    #+#             */
+/*   Updated: 2024/09/02 10:26:55 by aakouhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-#define UTILS_H
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/time.h>
-#include <unistd.h>
-# include <limits.h>
+#include "philo.h"
 
+void	ft_free_all(t_data *data)
+{
+	int	i;
 
-long	ft_atol(char *str);
-long long get_time(void);
-int    ft_usleep(size_t milliseconds);
-
-#endif
+	i = -1;
+	pthread_mutex_destroy(&data->status_lock);
+	pthread_mutex_destroy(&data->write_lock);
+	pthread_mutex_destroy(&data->dimo);
+	pthread_mutex_destroy(&data->eat_lock);
+	pthread_mutex_destroy(&data->time_lock);
+	pthread_mutex_destroy(&data->finish_lock);
+	while (++i < data->n_philo)
+		pthread_mutex_destroy(&data->forks[i]);
+}

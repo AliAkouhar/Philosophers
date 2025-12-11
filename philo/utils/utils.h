@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_set2.c                                         :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aakouhar <aakouhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 15:06:23 by aakouhar          #+#    #+#             */
-/*   Updated: 2024/06/30 15:16:08 by aakouhar         ###   ########.fr       */
+/*   Created: 2024/06/02 15:48:27 by aakouhar          #+#    #+#             */
+/*   Updated: 2024/08/13 11:21:21 by aakouhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#ifndef UTILS_H
+# define UTILS_H
+# include <limits.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/time.h>
+# include <unistd.h>
 
-int    get_finish(t_data *data)
-{
-    int t;
-    
-    pthread_mutex_lock(&data->finish_lock);
-    t = data->finish;
-    pthread_mutex_unlock(&data->finish_lock);
-    return (t);
-}
+long		ft_atol(char *str);
+long long	get_time(void);
+int			ft_usleep(size_t milliseconds);
 
-void    set_finish(t_data *data, int i)
-{
-    pthread_mutex_lock(&data->finish_lock);
-    data->finish = i;
-    pthread_mutex_unlock(&data->finish_lock);
-}
+#endif
